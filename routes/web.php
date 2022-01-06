@@ -32,8 +32,15 @@ Route::get('/admin/products/index', [ProductController::class, 'index'])->name('
 Route::post('/admin/product', [ProductController::class, 'store'])->name('product.store');
 Route::delete('/admin/{product}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
     Route::get('/admin/{category}/show', [ProductController::class, 'show'])->name('product.show');
+    Route::get('/admin/product/add_to_cart/{id}', [ProductController::class, 'addToCart'])->name('product.add.cart');
+    Route::get('/admin/product/get_cart', [ProductController::class, 'getCart'])->name('product.cart');
+    Route::get('/admin/product/get_cart/checkout', [ProductController::class, 'checkOut'])->name('cart.checkout');
+    Route::post('/admin/product/get_cart/checkout', [ProductController::class, 'check'])->name('check');
 
+//test
+    Route::post('stripe', [ProductController::class, 'stripePost'])->name('stripe.post');
 
+    //
 Route::get('/admin/category/create', [CategoryController::class, 'index'])->name('category.index');
 
 Route::post('/admin/category/store', [CategoryController::class, 'store'])->name('category.store');

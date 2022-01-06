@@ -7,7 +7,7 @@
 {{--    </ul>--}}
 {{--</li>--}}
 <li class="nav-item active">
-    <a class="nav-link" href="product.html">Products</a>
+    <a class="nav-link" href="{{route('home')}}">Products</a>
 </li>
 @if(Auth::check())
 <li class="nav-item">

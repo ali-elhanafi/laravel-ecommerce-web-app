@@ -5,6 +5,11 @@
             <div class="container">
                 <div class="heading_container heading_center">
                     <div class="row">
+                        @if(session()->has('success'))
+                            <div id="charge-message" class="alert alert-success">{{session('success')}}</div>
+                        @endif
+                    </div>
+                    <div class="row">
                         @foreach($categories as $category)
                             <div class="col">
                             <form action="{{route('product.show',$category->id)}}">
@@ -27,7 +32,7 @@
                             <div class="box">
                                 <div class="option_container">
                                     <div class="options">
-                                        <a href="" class="option1">
+                                        <a href="{{route('product.add.cart',$product->id)}}" class="option1">
                                             Add To Cart
                                         </a>
                                         <a href="" class="option2">

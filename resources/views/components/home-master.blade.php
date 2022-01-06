@@ -16,7 +16,7 @@
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/homestyle/bootstrap.css')}}" />
     <!-- font awesome style -->
-    <link href="{{asset('css/homestyle/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/homestyle/fontawesome.css')}}" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="{{asset('css/homestyle/style.css')}}" rel="stylesheet" />
     <!-- responsive style -->
@@ -28,7 +28,9 @@
     <header class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="index.html"><img width="250" src="images/logo.png" alt="#" /></a>
+                <a href="{{route('product.cart')}}"><li class="fa fa-shopping-cart"></li>
+                Shopping Cart <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class=""> </span>
                 </button>
@@ -70,5 +72,6 @@
 <script src="{{asset('js/javascript/bootstrap.js')}}"></script>
 <!-- custom js -->
 <script src="{{asset('js/javascript/custom.js')}}"></script>
+@yield('scripts')
 </body>
 </html>
